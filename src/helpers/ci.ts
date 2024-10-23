@@ -107,6 +107,7 @@ export const getCISpanTags = (): SpanTags | undefined => {
       CIRCLE_SHA1,
       CIRCLE_REPOSITORY_URL,
       CIRCLE_JOB,
+      DD_CI_STAGE_NAME,
     } = env
 
     const pipelineUrl = `https://app.circleci.com/pipelines/workflows/${CIRCLE_WORKFLOW_ID}`
@@ -120,6 +121,7 @@ export const getCISpanTags = (): SpanTags | undefined => {
       [CI_PROVIDER_NAME]: CI_ENGINES.CIRCLECI,
       [CI_WORKSPACE_PATH]: CIRCLE_WORKING_DIRECTORY,
       [GIT_SHA]: CIRCLE_SHA1,
+      [CI_STAGE_NAME]: DD_CI_STAGE_NAME,
       [GIT_REPOSITORY_URL]: CIRCLE_REPOSITORY_URL,
       [GIT_TAG]: CIRCLE_TAG,
       [GIT_BRANCH]: CIRCLE_BRANCH,
